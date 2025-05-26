@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+    color: #333;
+  }
+  
+  .container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #0037b8;
+  }
+  
+  .boton-pago {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #0037b8;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+  }
+  
+  .boton-pago:hover {
+    transform: scale(1.05);
+    background-color: #002a8a;
+  }
+  
+  .descuentos {
+    margin-top: 3rem;
+  }
+  
+  .pack {
+    margin-bottom: 2rem;
+  }
+  
+  .pack h3 {
+    margin-bottom: 0.5rem;
+    color: #0037b8;
+  }
+  
+  blockquote {
+    background: #e9e9e9;
+    padding: 1rem;
+    border-left: 5px solid #0037b8;
+    margin: 0;
+  }
+  

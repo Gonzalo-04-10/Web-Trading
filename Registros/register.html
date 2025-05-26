@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Registro</title>
+  <link rel="stylesheet" href="registerstyle.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Crear cuenta</h2>
+    <form id="registerForm">
+      <input type="text" id="username" placeholder="Tu Nombre" required>
+      <input type="email" id="email" placeholder="Correo electrónico" required>
+      <input type="password" id="password" placeholder="Contraseña" required>
+      <button type="submit">Registrarse</button>
+    </form>
+    <p>Si ya tenes una cuenta ➝ <a href="inicio.html">Iniciar sesión</a></p>
+  </div>
+
+  <div id="toast" style="
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+"></div>
+
+<script>
+  function mostrarToast(mensaje) {
+    const toast = document.getElementById("toast");
+    toast.textContent = mensaje;
+    toast.style.display = "block";
+    setTimeout(() => toast.style.opacity = 1, 100); // Fade in
+
+    setTimeout(() => {
+      toast.style.opacity = 0; // Fade out
+      setTimeout(() => toast.style.display = "none", 400);
+    }, 4000); // Dura 4 segundos
+  }
+
+  const params = new URLSearchParams(window.location.search);
+  if (params.get("desde") === "adquirir") {
+    mostrarToast("Necesitás registrarte o iniciar sesión antes. Luego podrás adquirir los cursos.");
+  }
+</script>
+
+
+  <script src="register.js"></script>
+</body>
+</html>

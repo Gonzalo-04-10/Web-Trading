@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Mis Compras - GonzaTrade</title>
+  <link rel="stylesheet" href="changuito.css">
+</head>
+<body>
+  <h1>Mis Compras</h1>
+
+  <div id="sin-compras" class="mensaje">
+    <p>Usted no tiene compras.</p>
+    <a href="../index.html" class="btn-ver-cursos">Ver cursos</a>
+  </div>
+
+  <div id="con-compras" class="tabla-compras">
+    <table>
+      <thead>
+        <tr>
+          <th>Curso</th>
+          <th>Fecha de compra</th>
+          <th>Monto</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-compras-body">
+        <!-- Compras se insertarán acá -->
+      </tbody>
+    </table>
+  </div>
+
+  <script src="changuito.js"></script>
+</body>
+</html>
