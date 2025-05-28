@@ -1,17 +1,6 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const usuarioActivo = JSON.parse(localStorage.getItem('usuarioLogueado'));
-
-  const navPublico = document.getElementById('nav-publico');
-  const navLogueado = document.getElementById('nav-logueado');
-
-  if (usuarioActivo) {
-   navPublico.style.display = 'none';
-   navLogueado.style.display = 'block';
-  } else {
-   navPublico.style.display = 'block';
-   navLogueado.style.display = 'none';
-  }
-});
+const usuario = localStorage.getItem('usuarioLogueado');
+document.querySelectorAll('.nav-logueado').forEach(el => el.style.display = usuario ? 'block' : 'none');
+document.querySelectorAll('.nav-publico').forEach(el => el.style.display = usuario ? 'none' : 'block');
 
 
 

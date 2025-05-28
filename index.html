@@ -19,7 +19,7 @@
 
                 <div class="nav-right"> 
 
-                  <div id="nav-logueado" style="display: none;">
+                  <div class= "nav-logueado" style="display: none;">
                      <div class="perfil-container">
                     <img src="Imagenes/tiktok-no-profile-picture.avif" alt="Usuario" class="icono-usuariolog" id="iconoPerfillog" />
                     <div id="menu-usuario" class="menu-usuario">
@@ -28,7 +28,7 @@
                   </div>
                   </div>
 
-                  <div id="nav-publico">
+                  <div class="nav-publico">
                   <a href="Registros/register.html" class="btn-login">Iniciar sesión / Registrarse</a>
                   </div>
 
@@ -90,13 +90,13 @@
             <h3>Fundamentos del juego</h3>
             <p>Descubrí las bases mentales y emocionales del trading. Ideal para comenzar con la mentalidad correcta.</p>
 
-            <div id="nav-publico">
+            <div class="nav-publico">
               <button>
                 <a href="Registros/register.html?desde=adquirir">Adquirir</a>
               </button>
               </div>
             
-            <div id="nav-logueado">
+            <div class="nav-logueado">
             <button>
                 <a href="Fundamentosdeljuego/fundamentos.html">Adquirir</a>
             </button>
@@ -113,14 +113,14 @@
             <h3>Cerebro contable</h3>
             <p>Aprendé a ver el mercado como un contador: medí, gestioná y dominá tu operativa como un profesional.</p>
 
-              <div id="nav-publico">
+              <div class="nav-publico">
               <button>
                 <a href="Registros/register.html?desde=adquirir">Adquirir</a>
               </button>
               </div>
 
 
-              <div id="nav-logueado">
+              <div class="nav-logueado">
               <button>
                 <a href="Cerebrocontable/Cerebrocontable.html">Adquirir</a>
               </button> 
@@ -137,13 +137,13 @@
             <h3>Zona estratega</h3>
             <p>Diseñá tu plan de trading con distintas estrategias conocerás la lógica, estructura y táctica del mercado.</p>
 
-            <div id="nav-publico">
+            <div class="nav-publico" style="display: none;">
             <button>
                 <a href="Registros/register.html?desde=adquirir">Adquirir</a>
             </button>
             </div>
 
-              <div id="nav-logueado">     
+              <div class="nav-logueado" style="display: none;">     
                 <button>
                 <a href="ZonaEstrategica/ZonaEstrategica.html">Adquirir</a>
                 </button>
@@ -159,13 +159,13 @@
             <h3>Dinero codificado</h3>
             <p>Explorá cómo el dinero se mueve con patrones, algoritmos y códigos. Inteligencia artificial y mas.</p>
 
-              <div id="nav-publico">
+              <div class="nav-publico">
                <button>
               <a href="Registros/register.html?desde=adquirir">Adquirir</a>
                 </button>
             </div>
             
-            <div id="nav-logueado">
+            <div class="nav-logueado">
               <button>
               <a href="Dinero codificado/Dinerocodificado.html">Adquirir</a>
               </button>
@@ -200,12 +200,11 @@
 
       <button onclick="cerrarSesion()">Cerrar sesión</button>
 
-        <script>
+      <script>
           function cerrarSesion() {
             localStorage.removeItem('usuarioLogueado');
             window.location.href = 'index.html';
           }
         </script>
-
 </body>
 </html>

@@ -90,6 +90,11 @@ def obtener_compras_usuario():
     if not username:
         return jsonify({'error': 'Falta el nombre de usuario'}), 400
 
+def conectar_db():
+    conn = sqlite3.connect('usuarios.db')
+    conn.row_factory = sqlite3.Row
+    return conn
+
     conn = conectar_db()
 
     # Buscar el usuario
