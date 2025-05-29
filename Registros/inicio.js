@@ -11,7 +11,7 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
   }
 
   // Enviamos los datos al backend
-  fetch('http://127.0.0.1:5000/login', {
+  fetch('https://web-production-027f4.up.railway.app/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

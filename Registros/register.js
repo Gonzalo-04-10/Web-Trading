@@ -21,7 +21,7 @@
     }
   
     // Enviar al backend
-    fetch('http://127.0.0.1:5000/register', {
+    fetch('https://web-production-027f4.up.railway.app/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

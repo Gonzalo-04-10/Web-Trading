@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const monto = parseFloat(botonPago.getAttribute('data-monto')) || 0;
     const fecha = new Date().toISOString().split('T')[0];
 
-    fetch('http://localhost:5000/api/registrar-compra', {
+    fetch('https://web-production-027f4.up.railway.app//api/registrar-compra', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
