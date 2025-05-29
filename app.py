@@ -90,11 +90,10 @@ def obtener_compras_usuario():
     if not username:
         return jsonify({'error': 'Falta el nombre de usuario'}), 400
 
-def conectar_db():
-    conn = sqlite3.connect('usuarios.db')
-    conn.row_factory = sqlite3.Row
-    return conn
-
+    def conectar_db():
+        conn = sqlite3.connect('usuarios.db')
+        conn.row_factory = sqlite3.Row
+        return conn
     conn = conectar_db()
 
     # Buscar el usuario
@@ -106,14 +105,54 @@ def conectar_db():
     user_id = user['id']
 
     # Traer compras del usuario
-    compras = conn.execute('SELECT nombre_curso, fecha, monto FROM compras WHERE id_usuario = ?',(user_id,)
-    ).fetchall()
+    compras = conn.execute('SELECT nombre_curso, fecha, monto FROM compras WHERE id_usuario = ?',(user_id,)).fetchall()
     conn.close()
 
     # Convertir a lista de diccionarios
     compras_list = [dict(compra) for compra in compras]
 
     return jsonify(compras_list)
+
+
+@app.route('/api/registrar-compra', methods=['POST'])
+def registrar_compra():
+    data = request.get_json()
+
+    username = data.get('username')
+    nombre_curso = data.get('nombre_curso')
+    fecha = data.get('fecha')
+    monto = data.get('monto')
+
+    if not all([username, nombre_curso, fecha, monto]):
+        return jsonify({'error': 'Faltan datos'}), 400
+
+    conn = conectar_db()
+    cursor = conn.cursor()
+
+    # Buscar ID del usuario
+    cursor.execute('SELECT id FROM usuarios WHERE username = ?', (username,))
+    user = cursor.fetchone()
+
+    if not user:
+        conn.close()
+        return jsonify({'error': 'Usuario no encontrado'}), 404
+
+    id_usuario = user[0]
+
+
+    # Insertar compra
+    try:
+        cursor.execute('''
+            INSERT INTO compras (id_usuario, nombre_curso, fecha, monto)
+            VALUES (?, ?, ?, ?)
+        ''', (id_usuario, nombre_curso, fecha, monto))
+        conn.commit()
+        return jsonify({'success': True}), 200
+    except Exception as e:
+        print('Error al registrar compra:', e)
+        return jsonify({'error': 'Error al registrar compra'}), 500
+    finally:
+        conn.close()
 
 if __name__ == "__main__":
     app.run(debug=True)
