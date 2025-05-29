@@ -154,5 +154,7 @@ def registrar_compra():
     finally:
         conn.close()
 
-if __name__ == "__main__":
-    app.run(debug=True)
+if __name__ == '__main__':
+    from os import getenv
+    port = int(getenv('PORT', 5000))  # Railway te da el puerto por variable de entorno
+    app.run(host='0.0.0.0', port=port)
