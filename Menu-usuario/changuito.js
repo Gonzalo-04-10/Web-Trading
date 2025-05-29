@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Hacemos la petición al backend
-  fetch('http://localhost:5000/api/compras', {
+  fetch('https://web-production-027f4.up.railway.app//api/compras', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
