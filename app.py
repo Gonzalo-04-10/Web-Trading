@@ -6,7 +6,7 @@ from datetime import datetime
 import os
 
 # ---------- CONFIGURACIÓN DE BASE DE DATOS ----------
-DATABASE_URL = os.getenv('postgresql://postgres:tHScDWqYrzfljAJzyJylGjNbeIEQxlIm@postgres.railway.internal:5432/railway')  # Railway lo crea automáticamente
+DATABASE_URL = os.getenv('DATABASE_URL') 
 
 # Si estás en local, podés setear manualmente:
 # DATABASE_URL = "postgresql://usuario:contraseña@host:puerto/nombre_db"
