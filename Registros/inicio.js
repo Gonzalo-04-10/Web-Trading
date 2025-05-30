@@ -11,7 +11,7 @@ document.getElementById("registerForm").addEventListener("submit", function (e) 
   }
 
   // Enviamos los datos al backend
-  fetch('https://web-production-027f4.up.railway.app/login', {
+  fetch('https://backend-trading-03z4.onrender.com/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

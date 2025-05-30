@@ -21,7 +21,7 @@
     }
   
     // Enviar al backend
-    fetch('https://web-production-027f4.up.railway.app/register', {
+    fetch('https://backend-trading-03z4.onrender.com/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
