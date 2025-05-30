@@ -148,7 +148,3 @@ def registrar_compra():
 
     return jsonify({'success': True}), 200
 
-# ---------- INICIO ----------
-if __name__ == '__main__':
-    port = int(os.getenv('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
