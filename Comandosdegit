@@ -1,3 +1,8 @@
 git add .
 git commit -m "Actualicé el README con links de contacto"
 git push origin main
+
+Ctrl + C  # Cancela el proceso actual
+
+git gc --auto
+git prune
