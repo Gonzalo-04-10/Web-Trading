@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
- document.addEventListener('DOMContentLoaded', () => {
+ document.addEventListener('DOMContentLoaded'), () => {
   const usuario = JSON.parse(localStorage.getItem('usuarioLogueado'));
 
   if (!usuario) {
@@ -16,9 +16,15 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  const botonPago = document.querySelector('.boton-pago');
+if (!usuario) {
+    alert('Tenés que iniciar sesión para completar la compra');
+    window.location.href = '../Registros/register.html';
+    return;
+  }
+ }
+  /*const botonPago = document.querySelector('.boton-pago');
 
-  if (!botonPago) return;
+  if (!botonPago) return
 
   botonPago.addEventListener('click', (event) => {
     console.log('Click detectado');
@@ -51,4 +57,4 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error de red al registrar la compra:', error);
       });
   });
-});
+}); */

@@ -4,7 +4,7 @@ from sqlalchemy import create_engine, Column, Integer, String, Float, Date
 from sqlalchemy.orm import sessionmaker, declarative_base
 from datetime import datetime
 import os
-
+import requests
 # ---------- CONFIGURACIÓN DE BASE DE DATOS ----------
 DATABASE_URL = os.getenv('DATABASE_URL') 
 
@@ -116,6 +116,34 @@ def obtener_compras_usuario():
     ]
 
     return jsonify(compras_list)
+
+
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+
+@app.route('/webhook', methods=['POST'])
+def recibir_webhook():
+    data = request.get_json()
+    print("Webhook recibido:", data)
+
+    # Extraemos el ID del pago (payment_id)
+    payment_id = data.get("data", {}).get("id")
+
+    # Verificamos el estado del pago en Mercado Pago
+    if payment_id:
+        headers = {
+            "Authorization": f"Bearer {ACCESS_TOKEN}"
+        }
+        r = requests.get(f"https://api.mercadopago.com/v1/payments/{payment_id}", headers=headers)
+        pago = r.json()
+
+        if pago.get("status") == "approved":
+            # 🔓 Acá desbloqueás el curso para el usuario (tu lógica)
+            print("✅ Pago aprobado. Desbloquear curso.")
+        else:
+            print("❌ Pago NO aprobado.")
+
+    return jsonify({"status": "ok"}), 200
+
 
 # ---------- REGISTRAR COMPRA ----------
 @app.route('/api/registrar-compra', methods=['POST'])
